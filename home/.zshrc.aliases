@@ -1,0 +1,4 @@
+alias ls='ls -G'
+alias sl='ls'
+ 
+alias 'browse'='(){ open `git config --get remote.origin.url` }'
