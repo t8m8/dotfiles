@@ -1,4 +1,8 @@
-alias ls='ls -G'
+if [ "$(uname)" = 'Darwin' ]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
 alias sl='ls'
  
 alias 'browse'='(){ open `git config --get remote.origin.url` }'
