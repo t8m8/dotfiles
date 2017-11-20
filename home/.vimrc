@@ -7,3 +7,4 @@ set wrapscan
 set ignorecase
 set smartcase
 set tabstop=4
+inoremap <silent> jj <ESC>

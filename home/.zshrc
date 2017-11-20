@@ -15,6 +15,7 @@ autoload -Uz compinit
 compinit
 
 bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
 
 setopt AUTO_CD
 
