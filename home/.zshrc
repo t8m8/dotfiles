@@ -1,5 +1,4 @@
-PROMPT="%n %# "
-RPROMPT="%~"
+PROMPT="%n %# " RPROMPT="%~"
 
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -17,18 +16,30 @@ compinit
 bindkey -v
 bindkey -M viins 'jj' vi-cmd-mode
 
-setopt AUTO_CD
+setopt auto_cd
 
-setopt AUTO_PUSHD
-setopt PUSHD_IGNORE_DUPS
+setopt auto_pushd
+setopt pushd_ignore_dups
 
 setopt hist_save_no_dups
 setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+
+zshaddhistory() {
+    local line=${1%%$'\n'}
+    local cmd=${line%% *}
+    [[ ${cmd} != ls
+        && ${cmd} != cd
+        && ${cmd} != man
+        && ${cmd} != rm
+		&& ${cmd} != clear
+    ]]
+}
 
 DIRSTACKSIZE=10
 zstyle ':completion:*' menu select
