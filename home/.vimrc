@@ -1,3 +1,4 @@
+syntax enable
 colorscheme peachpuff
 set number
 set ruler
