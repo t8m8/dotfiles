@@ -7,4 +7,3 @@ alias sl='ls'
  
 alias 'browse'='(){ open `git config --get remote.origin.url` }'
 
-alias 'password'='(){ lpass show $1 --password }'
