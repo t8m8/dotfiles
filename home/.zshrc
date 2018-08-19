@@ -53,9 +53,6 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
 
-source /usr/local/opt/asdf/asdf.sh
-source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
-
 [ -f ~/.zshrc.exports ] && source ~/.zshrc.exports
 
 [ -f ~/.zshrc.aliases ] && source ~/.zshrc.aliases
