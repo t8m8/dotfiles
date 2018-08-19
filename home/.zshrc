@@ -25,6 +25,7 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
+setopt inc_append_history
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
@@ -51,6 +52,9 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath)
+
+source /usr/local/opt/asdf/asdf.sh
+source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
 [ -f ~/.zshrc.exports ] && source ~/.zshrc.exports
 
