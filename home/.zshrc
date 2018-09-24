@@ -38,7 +38,7 @@ zshaddhistory() {
         && ${cmd} != cd
         && ${cmd} != man
         && ${cmd} != rm
-		&& ${cmd} != clear
+        && ${cmd} != clear
     ]]
 }
 
