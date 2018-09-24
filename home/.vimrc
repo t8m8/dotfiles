@@ -8,4 +8,6 @@ set wrapscan
 set ignorecase
 set smartcase
 set tabstop=4
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 inoremap <silent> jj <ESC>
