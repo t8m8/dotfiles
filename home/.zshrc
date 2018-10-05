@@ -1,5 +1,11 @@
 PROMPT="%n %# " RPROMPT="%~"
 
+if [ "$(uname)" = 'Darwin' ]; then
+  PROMPT="%n@$(scutil --get ComputerName)$ " RPROMPT="%~"
+else
+  PROMPT="%n@${HOST}$ " RPROMPT="%~"
+fi
+
 autoload -Uz vcs_info
 setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
