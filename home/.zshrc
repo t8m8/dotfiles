@@ -54,6 +54,23 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:descriptions' format '%BCompleting%b %U%d%u'
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+        tmux rename-window "$(echo $* | rev | cut -d ' ' -f1 | rev | cut -d . -f 1)"
+        command ssh "$@"
+        if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+            tmux rename-window "$(scutil --get ComputerName)"
+        fi
+    else
+        command ssh "$@"
+    fi
+}
+
+if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+    tmux rename-window "$(scutil --get ComputerName)"
+fi
+
+
 # -----------------------------------------------------------------------------
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
